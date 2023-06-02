@@ -1,9 +1,5 @@
-// const heading =React.createElement("h1",{},"hellow React");
-//         const root =ReactDOM.createRoot(document.getElementById("root"));
-//         root.render(heading);
-//nested html code using react
-
-// ** parent is object and this object is a React Element,render change this object to html code 
+import React from "react";
+import ReactDOM from "react-dom/client"; 
 const parent=React.createElement(
     "div",
     { id :"parent"},
