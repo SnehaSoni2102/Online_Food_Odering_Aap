@@ -1,45 +1,57 @@
 import React from "react";
 import ReactDOM from "react-dom/client"; 
 
-//React.createElement => ReactElement-js Object => HTMLElement(render)
-const heading=React.createElement("h1",{id:"heading"},"Namste React");
+const Header =() =>{
+    return (
+        <div className="header">
+            <div className="logo-container">
+                <img className="logo" src="https://www.logodesign.net/logo/smoking-burger-with-lettuce-3624ld.png" />
+            </div>
+            <div className="nav-items">
+                <ul>
+                    <li>Home</li>
+                    <li>About us</li>
+                    <li>Contact</li>
+                    <li>cart</li>
+                </ul>
 
-const root=ReactDOM.createRoot(document.getElementById("root"));
-console.log(heading);
-//jsx is html like syntax
-//jsx(transpiled before its reaches to js engine) - Prarcel - babel
-
-//jsx => React.createElement => ReactElement-js Object => HTMLElement(render)
-const jsxheading=<h2 id="heading" className="head">Namste using jsx</h2>;
-console.log(jsxheading);
-
-// React Component
-//1 class based component - old way writting code 
-//2 functional component -new way writting code 
-
-// React functional component
-// const HeadingComponent= () => {
-//     return <h1 className="heading">Namste react functional component</h1>
+            </div>
+        </div>
+    )
+};
+// const styleCard={
+//     backgroundColor: "#f0f0f0",
 // };
-
-// rending component inside  another component -known as component composition
-const Title=() => (
-<h1 className="head" tabIndex="5">Namste using jsx</h1>
-);
-const n=1000;
-//const HeadingComponent= () => <h1>Namste react functional component</h1>;
-const HeadingComponent= () => (
- <div id="container">
-    <h2>{n}</h2>
-    <h3>{console.log("hgsgh")}</h3>
-    {n};
-    <Title />
-<h1 className="heading">Namste react functional component</h1>
-</div>
-);
-root.render(jsxheading);
-root.render(heading);
-root.render(<HeadingComponent />);
+const RestaurantCard = () =>{
+    return (
+          <div className="res-card" style={{ backgroundColor: "#f0f0f0",}}>
+            <img
+             className="res-logo"
+             alt="res-logo"
+             src="https://media.gettyimages.com/id/1212329362/photo/table-top-view-of-indian-food.jpg?s=612x612&w=gi&k=20&c=8ZvQ1cg8__pgyLxl6TPpLfAfbBhzR-OYoj4jwSCbQ84="
+            />
+             <h3>Meghana foods</h3>
+          </div>
+    );
+};
+const Body = () =>{
+    return(
+        <div className="body">
+            <div className="search">Search</div>
+            <div className="res-container">
+                <RestaurantCard />
+            </div>
+        </div>
+    );
+}
+const Applayout =()=>{
+    return (<div className="app">
+        <Header />
+        <Body />
+    </div>);
+};
+const root=ReactDOM.createRoot(document.getElementById("root"));
+root.render(<Applayout />);
 
 
 
