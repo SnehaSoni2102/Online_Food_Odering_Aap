@@ -31,3 +31,10 @@
   
 
  // not using key(not acceptable) << index as key << unique id(best practice)
+
+
+ #Hooks
+ (Normal javaScript with super power)
+ -there are two types
+ -1) useState()- super powerfull react  satate variable
+ -2) useEffect()- 
