@@ -15,3 +15,19 @@
 -Https
 -tree shaking
 -Differern dev and prod bundlers
+
+
+// const styleCard={
+//     backgroundColor: "#f0f0f0",
+// };
+
+
+
+
+// 1 const RestaurantCard = (props) =>{
+// 2 const RestaurantCard = ({resName,cuisine}) =>{
+//    const RestaurantCard = (props) =>{
+  //      const{resName,cuisine} =props;
+  
+
+ // not using key(not acceptable) << index as key << unique id(best practice)
