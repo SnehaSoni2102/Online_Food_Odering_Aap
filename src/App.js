@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client"; 
 import Header from "./component/Header.js"
 import Body from "./component/Body.js"
-import About from "./component/about.js";
+import About from "./component/About.js";
 import{ createBrowserRouter,RouterProvider, Outlet } from "react-router-dom";
 import Contact from "./component/Contact.js";
 import { Error } from "./component/Error.js";
