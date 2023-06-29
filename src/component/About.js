@@ -10,7 +10,6 @@ const About=()=>{
             <h1> About </h1>
             <h2> this is namste react </h2>
             <div className="ab-c">
-            <Users name ={"Sneha Soni(function)"} />
             <UserClass name={"Sneha Soni(class)"} />
             </div>
         </div>
