@@ -1,8 +1,9 @@
 import RestaurantCard from "./RestaurantCard";
-import resList from "../utiles/mockData";
+import useOnlineStatus from "../utiles/useOnlineStatus";
 import { useState , useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+
 
 const Body = () =>{
     const [listOfRestaurants,setListOfRestaurants]=useState([]);
@@ -20,11 +21,21 @@ const Body = () =>{
 
         const json = await data.json();
 
-        console.log(json);
+         
          // Optional channing
         setListOfRestaurants(json?.data?.cards[2]?.data?.data?.cards);
         setfilteredRestaurant(json?.data?.cards[2]?.data?.data?.cards);
     };
+
+    //Online status
+    const onlineStatus=useOnlineStatus();
+      if(onlineStatus===false)
+        return(
+            <h1>
+                you're offline
+            </h1>
+        );
+
     if(listOfRestaurants.length === 0){
         return <Shimmer />;
     }
