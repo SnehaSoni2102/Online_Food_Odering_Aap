@@ -10,6 +10,10 @@ const Body = () =>{
     const [filteredRestaurant,setfilteredRestaurant]=useState([]);
     const [searchText ,setsearchText] = useState("");
 
+    console.log("b",listOfRestaurants);
+
+    console.log("body");
+
     useEffect(()=>{
         fetchData();
     },[]);
@@ -23,9 +27,11 @@ const Body = () =>{
 
          
          // Optional channing
-        setListOfRestaurants(json?.data?.cards[2]?.data?.data?.cards);
-        setfilteredRestaurant(json?.data?.cards[2]?.data?.data?.cards);
+        setListOfRestaurants( json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        console.log("be",listOfRestaurants);
+        setfilteredRestaurant(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     };
+    console.log("b",listOfRestaurants);
 
     //Online status
     const onlineStatus=useOnlineStatus();
@@ -36,10 +42,9 @@ const Body = () =>{
             </h1>
         );
 
-    if(listOfRestaurants.length === 0){
-        return <Shimmer />;
+    if(listOfRestaurants.length=== 0){
+         return  <Shimmer />;
     }
-    
 
     return(
         <div className="body">
@@ -52,7 +57,7 @@ const Body = () =>{
                     />
                     <button className="px-4 py-2 bg-green-100 m-4 rounded-lg"
                      onClick={()=>{
-                         const filteredRestaurant=listOfRestaurants.filter((res)=> res.data.name.toLowerCase().includes(searchText.toLowerCase()));
+                         const filteredRestaurant=listOfRestaurants.filter((res)=>  res.info.name.toLowerCase().includes(searchText.toLowerCase()));
                          setfilteredRestaurant(filteredRestaurant);
                     }}>Search</button>
                 </div>
@@ -60,9 +65,9 @@ const Body = () =>{
                     <button className="px-4 py-2 bg-gray-100 rounded-lg"
                 onClick={()=>{
                     const FilteredList = listOfRestaurants.filter(
-                        (res) => res.data.avgRating >4
+                        (res) =>  res.info.avgRating > 4
                     );
-                setListOfRestaurants(FilteredList);
+                setfilteredRestaurant(FilteredList);
                 }}
             >
                 Top Rated Restaurant</button>
@@ -72,9 +77,14 @@ const Body = () =>{
             <div className="flex flex-wrap">
             {
               filteredRestaurant.map((restaurant) =>(
-               <Link key={restaurant.data.id }
-               to={"/restaurants/"+restaurant.data.id }><RestaurantCard resData={restaurant } /></Link>
-              )) }
+               <Link key={restaurant?.info.id }
+               to={"/restaurants/"+restaurant?.info.id }>
+                 {restaurant?.info.promoted ? (
+              <RestaurantCardPromoted resData={restaurant?.info} />
+            ) : (
+                <RestaurantCard resData={restaurant?.info} />   )}
+                </Link>
+              ))}
             </div>
         </div>
     );

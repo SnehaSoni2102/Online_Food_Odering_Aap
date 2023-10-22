@@ -55,7 +55,7 @@ const appRouter = createBrowserRouter([
      
 ]);
 
-
+console.log("AAp");
 const root=ReactDOM.createRoot(document.getElementById("root"));
 root.render(<RouterProvider router={appRouter} />);
 
