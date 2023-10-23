@@ -1,7 +1,9 @@
 import { CDN_URL } from "../utiles/contants";
 
+
 const RestaurantCard = (props) =>{
     const{ resData } =props;
+   // const { loggedInUser } = useContext(UserContext);
     const{
       cloudinaryImageId,
       name,
@@ -23,8 +25,26 @@ return (
        <h4>{avgRating}</h4>
        <h4>{costForTwo/100}</h4>
        <h4>{deliveryTime} minutes</h4>
+      
 
     </div>
 );
 };
+
+  // Higher order component
+   //takes input as RestaurantCard => output as restaurantCardPromoted|| just a javaScript function
+   export const withPromtedLabel =(RestaurantCard)=>{
+       return(props) => {
+        return(
+          <div>
+            <label className="absolute bg-black text-white m-2 p-2 rounded-lg ">
+              Promoted
+            </label>
+            <RestaurantCard {...props}/>
+          </div>
+        );
+       };
+   };
+
+
 export default RestaurantCard;

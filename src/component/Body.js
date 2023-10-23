@@ -1,8 +1,9 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard,{withPromtedLabel} from "./RestaurantCard";
 import useOnlineStatus from "../utiles/useOnlineStatus";
-import { useState , useEffect } from "react";
+import { useState , useEffect,useContext} from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import UserContext from "../utiles/UserContext";
 
 
 const Body = () =>{
@@ -10,9 +11,7 @@ const Body = () =>{
     const [filteredRestaurant,setfilteredRestaurant]=useState([]);
     const [searchText ,setsearchText] = useState("");
 
-    console.log("b",listOfRestaurants);
-
-    console.log("body");
+    const RestaurantCardPromoted = withPromtedLabel(RestaurantCard);
 
     useEffect(()=>{
         fetchData();
@@ -42,13 +41,15 @@ const Body = () =>{
             </h1>
         );
 
+        const {loggedInUser,setUserName} = useContext(UserContext);
+
     if(listOfRestaurants.length=== 0){
          return  <Shimmer />;
     }
 
     return(
         <div className="body">
-            <div className="filter flex items-center">
+            <div className="filter flex ">
                 <div className="search m-4 p-4" >
                     <input type="text" className="border border-solid border-black" value={searchText}
                     onChange={(e)=>{
@@ -61,7 +62,7 @@ const Body = () =>{
                          setfilteredRestaurant(filteredRestaurant);
                     }}>Search</button>
                 </div>
-               <div classname=" m-4 p-4 flex items-center ">
+               <div classname="search m-4 p-4 flex items-center ">
                     <button className="px-4 py-2 bg-gray-100 rounded-lg"
                 onClick={()=>{
                     const FilteredList = listOfRestaurants.filter(
@@ -73,7 +74,18 @@ const Body = () =>{
                 Top Rated Restaurant</button>
                </div>
                 
+            
+
+            <div classname="search m-4 p-4 flex items-center ">
+                  <label>UserName : </label>
+                  <input className="border border-black p-2" 
+                  value ={loggedInUser}
+                  onChange={(e)=> setUserName(e.target.value)}>
+                  </input> 
+                
             </div>
+            </div>
+
             <div className="flex flex-wrap">
             {
               filteredRestaurant.map((restaurant) =>(
