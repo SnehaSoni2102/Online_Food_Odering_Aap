@@ -1,9 +1,10 @@
 import { CDN_URL } from "../utiles/contants";
-
+import { useContext } from "react";
+import UserContext from "../utiles/UserContext";
 
 const RestaurantCard = (props) =>{
     const{ resData } =props;
-   // const { loggedInUser } = useContext(UserContext);
+     const { loggedInUser } = useContext(UserContext);
     const{
       cloudinaryImageId,
       name,
@@ -25,6 +26,7 @@ return (
        <h4>{avgRating}</h4>
        <h4>{costForTwo/100}</h4>
        <h4>{deliveryTime} minutes</h4>
+       <h4>User : {loggedInUser}</h4>
       
 
     </div>
