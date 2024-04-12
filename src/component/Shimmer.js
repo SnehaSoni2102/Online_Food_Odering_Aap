@@ -1,17 +1,8 @@
 const Shimmer = () =>{
-    return (<div className="shimmer-container">
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
-        <div className="shimmer-card"></div>
+    return (<div className="">
+        <div className=""></div>
+        <div className=""></div>
+        
     </div>);
     };
 export default Shimmer;
