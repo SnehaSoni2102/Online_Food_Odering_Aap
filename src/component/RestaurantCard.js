@@ -10,7 +10,7 @@ const RestaurantCard = (props) =>{
       name,
       cuisines,
       avgRating,
-      costForTwo,
+      areaName,
       sla
     }= resData;
 return (
@@ -20,16 +20,17 @@ return (
        alt="res-logo"
        src={CDN_URL+cloudinaryImageId}
        />
-       <h3 className="font-bold py-4 text-lg">{name}</h3>
-       <h4 className="line-clamp-1">{cuisines.join(", ")}</h4>
+       <div className="m-2">
+       <h3 className="font-medium text-lg">{name}</h3>
        <div className="flex flex-wrap gap-1 "> 
        <img className="w-[20px] h-[20px] pt-0.5 rounded-full" src={STAR_LOGO}/>
        <h4>{avgRating}</h4>
-       <h1 className="font-extrabold mb-2">.</h1>
-       <h4>{costForTwo}</h4>
-       </div>
+       <h1 className="font-extrabold">.</h1>
        <h4>{sla?.slaString}</h4>
-       <h4>User : {loggedInUser}</h4>
+       </div>
+       <h4 className="line-clamp-1 text-gray-500 font-light">{cuisines.join(", ")}</h4>
+       <h4 className="line-clamp-1 text-gray-500 font-light">{areaName}</h4> 
+       </div>
       
 
     </div>

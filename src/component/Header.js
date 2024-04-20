@@ -13,8 +13,8 @@ const Header =() =>{
     const { loggedInUser } =useContext(UserContext);
 
     return (
-        <div className="flex justify-between bg-pink-100 shadow-lg sm:bg-lime-100 lg:bg-green-100">
-            <div className="logo-container">
+        <div className="flex justify-between  shadow-lg  ">
+            <div className="">
             <img className="w-32" src={LOGO_URL}/>
             </div>
             <div className="flex items-center">

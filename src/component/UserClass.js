@@ -19,6 +19,7 @@ class UserClass extends React.Component{
         this.setState({
              usreInfo:json,
         });
+        Console.log(usreInfo ,"dgwud")
 
         // this.timer = setInterval(() =>{
         //      console.log("Namste-oops")
