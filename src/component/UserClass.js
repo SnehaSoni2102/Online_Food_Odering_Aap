@@ -13,13 +13,13 @@ class UserClass extends React.Component{
        
     }
     async componentDidMount(){
-       // console.log("child component did mount");
+       
         const data=await fetch("https://api.github.com/users/SnehaSoni2102");
         const json = await data.json();
         this.setState({
              usreInfo:json,
         });
-        Console.log(usreInfo ,"dgwud")
+       
 
         // this.timer = setInterval(() =>{
         //      console.log("Namste-oops")
@@ -51,7 +51,7 @@ class UserClass extends React.Component{
                 <img src={avatar_url} />
              <h3>Name: {name}</h3>
               <h3>Location: {location}</h3>
-              <h3>City: {Rasra}</h3>
+              <h3>City: Rasra</h3>
             </div>
           );
     }

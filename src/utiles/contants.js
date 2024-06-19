@@ -11,6 +11,7 @@ export const STAR_LOGO=
 "https://as1.ftcdn.net/v2/jpg/00/94/22/12/1000_F_94221253_fAgv0Jym53ysz7nwoqXRmkb6GAKwNsfs.jpg";
 
 export const MENU_API="https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.45970&lng=77.02820&restaurantId="
+//"https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.45970&lng=77.02820&restaurantId="
 //"https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.7040592&lng=77.10249019999999&restaurantId=";
 // "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.7040592&lng=77.10249019999999&restaurantId=614570&submitAction=ENTER"
          

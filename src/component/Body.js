@@ -24,13 +24,13 @@ const Body = () =>{
 
         const json = await data.json();
 
-         console.log("json", json);
+        
          // Optional channing
         setListOfRestaurants( json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-        console.log("be",listOfRestaurants);
+      
         setfilteredRestaurant(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     };
-    console.log("b",listOfRestaurants);
+    
 
     //Online status
     const onlineStatus=useOnlineStatus();
@@ -48,9 +48,9 @@ const Body = () =>{
     }
 
     return(
-        <div className="body">
-            <div className="filter flex ">
-                <div className="search m-4 p-4" >
+        <div className="flex flex-wrap items-center ml-16">
+            <div className="flex flex-wrap justify-center ml-48">
+                <div className=" m-4 p-4" >
                     <input 
                     type="text" 
                     className="border border-solid border-black" 
@@ -71,30 +71,28 @@ const Body = () =>{
                         Search
                         </button>
                 </div>
-               <div classname="search m-4 p-4 flex items-center ">
+               <div classname=" flex flex-wrap gap-4 items-center ">
                     <button 
-                    className="px-4 py-2 bg-gray-100 rounded-lg"
+                    className="px-4 py-2 mt-12 bg-gray-100 rounded-lg mr-8"
                   onClick={()=>{
-                    const FilteredList = listOfRestaurants.filter(
+                    const FilteredList = listOfRestaurant.filter(
                         (res) =>  res.info.avgRating > 4
                     );
                 setfilteredRestaurant(FilteredList);
                 }}
             >
-                Top Rated Restaurant</button>
-               </div>
-                
-            
+                Top Rated Restaurants</button>
 
-               <div classname="search m-4 p-4 flex items-center ">
-                  <label>UserName : </label>
+                <label>UserName : </label>
                   <input
                       className="border border-black p-2" 
                       value ={loggedInUser}
                       onChange={(e)=> setUserName(e.target.value)}
                   />
                </div>
-            </div>
+
+               </div>
+            
 
             <div className="flex flex-wrap">
             {

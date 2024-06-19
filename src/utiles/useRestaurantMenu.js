@@ -17,7 +17,6 @@ const useRestaurantMenu=(resId)=>{
         
           setresInfo(json.data);
     };
-    console.log("YYYYYYY", resInfo);
 
     return resInfo;
 }
