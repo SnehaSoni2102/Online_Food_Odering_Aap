@@ -24,12 +24,15 @@ const Body = () =>{
 
         const json = await data.json();
 
+        console.log("json",json)
+
         
          // Optional channing
-        setListOfRestaurants( json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        setListOfRestaurants( json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
       
-        setfilteredRestaurant(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        setfilteredRestaurant(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     };
+    console.log("listof r ",listOfRestaurants);
     
 
     //Online status
@@ -50,7 +53,7 @@ const Body = () =>{
     return(
         <div className="flex flex-wrap justify-center">
             
-            {/* grid md:grid-cols-3 grid-cols-1 */}
+            
             <div className="flex md:flex-row flex-wrap justify-center items-center gap-4">
             <div className="md:text-[16px] text-[12px]">
                 <label>UserName: </label>
