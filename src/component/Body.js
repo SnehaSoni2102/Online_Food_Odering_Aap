@@ -10,13 +10,13 @@ const Body = () =>{
     const [listOfRestaurants,setListOfRestaurants]=useState([]);
     const [filteredRestaurant,setfilteredRestaurant]=useState([]);
     const [searchText ,setsearchText] = useState("");
-
+    const {loggedInUser,setUserName} = useContext(UserContext);
     const RestaurantCardPromoted = withPromtedLabel(RestaurantCard);
 
     useEffect(()=>{
         fetchData();
     },[]);
-
+   
     const fetchData = async () => {
         const data = await fetch(
             "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.45970&lng=77.02820&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
@@ -24,7 +24,7 @@ const Body = () =>{
 
         const json = await data.json();
 
-        console.log("json",json)
+       
 
         
          // Optional channing
@@ -32,7 +32,7 @@ const Body = () =>{
       
         setfilteredRestaurant(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     };
-    console.log("listof r ",listOfRestaurants);
+    
     
 
     //Online status
@@ -44,7 +44,7 @@ const Body = () =>{
             </h1>
         );
 
-       const {loggedInUser,setUserName} = useContext(UserContext);
+    console.log("list of restaurants",listOfRestaurants);   
 
     if(listOfRestaurants.length === 0){
          return  <Shimmer />;
@@ -88,7 +88,7 @@ const Body = () =>{
                 <button 
                     className="md:px-4 px-2 md:py-2  bg-gray-100 rounded-lg md:h-[40px] h-[20px] md:w-[200px] w-[150px] md:text-[16px] text-[10px] "
                   onClick={()=>{
-                    const FilteredList = listOfRestaurant.filter(
+                    const FilteredList = listOfRestaurants.filter(
                         (res) =>  res.info.avgRating > 4
                     );
                 setfilteredRestaurant(FilteredList);

@@ -11,6 +11,7 @@ import { useState } from 'react';
     
 
     const { resId}=useParams();
+   
 
     const dummy="Dummy Data";
     
@@ -25,7 +26,6 @@ import { useState } from 'react';
 
     //  const{ itemCards}=resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
      
-     console.log(resInfo,"rseinfo");
      const categories =
     resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
       (c) =>
